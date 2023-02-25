@@ -1,0 +1,316 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Urbanist:wght@500&display=swap");
+
+*,
+::before,
+::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+h1{
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+ul {
+    list-style: none;
+}
+
+body {
+    height: 100vh;
+    background: #1A2980;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #26D0CE, #6d78b8);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #26D0CE, #616eb3); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    
+    position: relative;
+    overflow: hidden;
+    color: #292d34;
+}
+
+.nav {
+    width: 100%;
+    height: 100px;
+    position: relative;
+    z-index: 1000;
+}
+
+.nav .trigger {
+    position: absolute;
+    top: 90%;
+    right: 24px;
+    transform: translate(0, -50%);
+    cursor: pointer;
+    display: inline-block;
+    width: 48px;
+    height: 252px;
+}
+
+.nav .trigger span {
+    position: relative;
+    width: 100%;
+    height: 6px;
+    transform: translateY(12px);
+    background-color: #292d34;
+    display: block;
+    border-radius: 9px;
+}
+
+.nav .trigger span::before,
+.nav .trigger span::after {
+    position: absolute;
+    content: "";
+    width: 100%;
+    height: 6px;
+    background-color: #292d34;
+    display: block;
+    border-radius: 9px;
+}
+
+.nav .trigger span::before {
+    transform: translateY(-12px);
+}
+
+.nav .trigger span::after {
+    transform: translateY(12px);
+}
+
+.trigger span {
+    transition: all 0.3s linear;
+}
+
+.trigger.active span {
+    background-color: transparent;
+}
+
+.trigger span:before {
+    animation: downAndTurnReverse 0.5s linear both;
+}
+
+.trigger.active span:before {
+    animation: downAndTurn 0.5s linear both;
+}
+
+.trigger span:after {
+    animation: upAndTurnReverse 0.5s linear both;
+}
+
+.trigger.active span:after {
+    animation: upAndTurn 0.5s linear both;
+}
+
+@keyframes downAndTurn {
+    0% {
+        transform: translateY(-12px) rotate(0deg);
+    }
+
+    50% {
+        transform: translateY(0px) rotate(0deg);
+    }
+
+    100% {
+        transform: translateY(0px) rotate(45deg);
+    }
+}
+
+@keyframes downAndTurnReverse {
+    0% {
+        transform: translateY(0) rotate(45deg);
+    }
+
+    50% {
+        transform: translateY(0px) rotate(0deg);
+    }
+
+    100% {
+        transform: translateY(-12px) rotate(0deg);
+    }
+}
+
+@keyframes upAndTurn {
+    0% {
+        transform: translateY(12px) rotate(0deg);
+    }
+
+    50% {
+        transform: translateY(0px) rotate(0deg);
+    }
+
+    100% {
+        transform: translateY(0px) rotate(-45deg);
+    }
+}
+
+@keyframes upAndTurnReverse {
+    0% {
+        transform: translateY(0px) rotate(-45deg);
+    }
+
+    50% {
+        transform: translateY(0px) rotate(0deg);
+    }
+
+    100% {
+        transform: translateY(12px) rotate(0deg);
+    }
+}
+
+.sidebar {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 320px;
+    max-width: 90%;
+    height: 100%;
+    color: #fff;
+    z-index: 500;
+    background: #cc95c0;
+    /* fallback for old browsers */
+    background: -webkit-linear-gradient(to bottom,
+            #7aa1d2,
+            #dbd4b4,
+            #cc95c0);
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to bottom,
+            #7aa1d2,
+            #dbd4b4,
+            #cc95c0);
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    transition: transform 0.5s;
+    transform: translateX(100%);
+    overflow-y: auto;
+    padding: 32px;
+    overflow-x: hidden;
+}
+
+.sidebar .menu li {
+    font-size: 24px;
+    color: #292d34;
+    cursor: pointer;
+    transform: translateX(150px);
+}
+
+.sidebar.show {
+    transform: translateX(0);
+    box-shadow: -10px 0px 35px rgba(124, 130, 141, 0.3);
+}
+
+.sidebar.show .menu li {
+    transform: translateX(0);
+}
+
+.bottom-nav {
+    width: 10vw;
+    height: 100px;
+    position: relative;
+    z-index: 1000;
+}
+
+.bottom-nav .bottom-trigger {
+    position: absolute;
+    top: 53px;
+    left: 12px;
+    transform: translate(0, -50%);
+    cursor: pointer;
+    display: inline-block;
+    width: 48px;
+    height: 30px;
+}
+
+.bottom-nav .bottom-trigger span {
+    position: relative;
+    width: 100%;
+    height: 6px;
+    transform: translateY(12px);
+    background-color: #292d34;
+    display: block;
+    border-radius: 9px;
+}
+
+.bottom-nav .bottom-trigger span::before,
+.bottom-nav .bottom-trigger span::after {
+    position: absolute;
+    content: "";
+    width: 100%;
+    height: 6px;
+    background-color: #292d34;
+    display: block;
+    border-radius: 9px;
+}
+
+.bottom-nav .bottom-trigger span::before {
+    transform: translateY(-12px);
+}
+
+.bottom-nav .bottom-trigger span::after {
+    transform: translateY(12px);
+}
+
+.bottom-trigger span {
+    transition: all 0.3s linear;
+}
+
+.bottom-trigger.active span {
+    background-color: transparent;
+}
+
+.bottom-trigger span:before {
+    animation: downAndTurnReverse 0.5s linear both;
+}
+
+.bottom-trigger.active span:before {
+    animation: downAndTurn 0.5s linear both;
+}
+
+.bottom-trigger span:after {
+    animation: upAndTurnReverse 0.5s linear both;
+}
+
+.bottom-trigger.active span:after {
+    animation: upAndTurn 0.5s linear both;
+}
+
+
+.bottom-sidebar {
+    min-width: 100%;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    height: 200px;
+    max-width: 90%;
+    color: #7a1f1f;
+    z-index: 500;
+    background: #cc95c0;
+    background: -webkit-linear-gradient(to bottom,
+            #7aa1d2,
+            #dbd4b4,
+            #cc95c0);
+    background: linear-gradient(to bottom,
+    #7aa1d2,
+    #dbd4b4,
+    #cc95c0);
+    transition: transform 0.5s;
+    transform: translateY(100%);
+    overflow-y: auto;
+    padding: 39px;
+    overflow-y: hidden;
+}
+
+.bottom-sidebar .menu li {
+    font-size: 24px;
+    color: #292d34;
+    cursor: pointer;
+    transform: translateY(0);
+}
+
+.bottom-sidebar.show {
+    transform: translateY(0);
+    box-shadow: -10px 0px 35px rgba(124, 130, 141, 0.3);
+}
+
+.bottom-sidebar.show .menu li {
+    transform: translateY(0);
+}
